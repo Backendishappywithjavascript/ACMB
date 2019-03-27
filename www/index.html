@@ -19,10 +19,14 @@
       }
       document.getElementById('header').classList.add(x);
     }
-    function selectAtt(x)
+    function selectAtt(taxaDeAtividade)
     {
+      //armazena o DOM do output dentro da variavel e, para que este seja manipulado posteriormente.
       var e = document.getElementById('output');
-        switch(x.value)
+
+        /*com base na Taxa de Atividade informada pelo usuário, exibe o grupo ao qual ele pertence e estiliza
+        o output com base no mesmo*/
+        switch(taxaDeAtividade)
         {
             case '1': 
             e.innerHTML = 'Sedentários';
@@ -52,15 +56,25 @@
     </script>    
 </head>
 <body>
+  <!--Header.
+   basicamente o cabeçalho do aplicativo-->
 	<div id='header'>
 	    Metabolismo Basal
   </div>
-  <div id='corpo'>
-    <div id='radio-container'>
-      <div id='radio-first'><input type='radio' class="radio" name='sexo' value='f' onclick="changeColor(this.value)"/>Feminino</div>
-      <div id='radio-second'><input type='radio' class="radio" name='sexo' value='m' onclick="changeColor(this.value)"/>Masculino</div>
+  <!--Corpo.
+   todos os demais elementos do projeto-->
+  <div id='body'>
+    <!--Radio container.
+     elementos que agrupam os radios responsáveis pela seleção do sexo do indivíduo-->
+    <!-- JAVASCRIPT = aciona a função changeColor que muda a cor do header com base no sexo escolhido -->
+    <div id='radioContainer'>
+      <div id='radioFirst'><input type='radio' class="radio" name='sexo' value='f' onclick="changeColor(this.value)"/>Feminino</div>
+      <div id='radioSecond'><input type='radio' class="radio" name='sexo' value='m' onclick="changeColor(this.value)"/>Masculino</div>
     </div>
-    <select id='selecionar' onchange="selectAtt(this)">
+    <!-- Select de Taxa de Atividade. 
+    aqui os usuários devem informar a Frequencia com que praticam atividades-->
+    <!-- JAVASCRIPT = aciona a função selectAtt e envia o elemento atual para que o valor seja retirado -->
+    <select id='selectAtivityRate' onchange="selectAtt(this.value)">
       <option class="options" value="">Selecione</option>
       <option class="options" value="1">Pouco ou nenhum exercício</option>
       <option class="options" value="2">Exercício leve 1 a 3 dias por semana</option>
@@ -68,6 +82,8 @@
       <option class="options" value="4">Exercício pesado de 5 a 6 dias por semana</option>
       <option class="options" value="5">Exercício pesado até 2 vezes por dia</option>
     </select>    
+    <!-- Saída de informação. 
+    informa ao usuario, com base em sua Taxa de atividade informada, em qual grupo ele se enquadra-->
     <output id="output">Taxa de Atividade</output>
   </div>
 </body>
