@@ -21,8 +21,9 @@
     }
     function selectAtt(taxaDeAtividade)
     {
-      //armazena o DOM do output dentro da variavel e, para que este seja manipulado posteriormente.
+      //armazena os DOMs do output dentro de variaveis, para que estes sejam manipulados posteriormente.
       var e = document.getElementById('output');
+      var text = document.getElementById('outputInfo');
 
         /*com base na Taxa de Atividade informada pelo usuário, exibe o grupo ao qual ele pertence e estiliza
         o output com base no mesmo*/
@@ -31,26 +32,74 @@
             case '1': 
             e.innerHTML = 'Sedentários';
             e.style.background = '#f96d6d';
+
+            text.innerHTML = `o Sedentarismo pode acarretar em consequencias graves, tais como:
+             
+- Acúmulo de gordura e entopimento de artérias;
+- Excesso de peso, ocasionando a obesidade;
+- Doenças cardiovasculares, até mesmo infartos;
+- Risco de Diabetes do tipo II;
+            `;
+            text.classList.toggle('show');
+            text.classList.toggle('grow');
               break;
             case '2': 
             e.innerHTML = 'Levemente ativo';
             e.style.background = '#f99e6d';
+            text.innerHTML = `é um começo, mas a falta de uma taxa mais elevada de atividade pode gerar:
+            
+- Falta de força muscular e dores musculares;
+- Cansaço em excesso com pouco esforço;
+- Ineficiência do musculo ;
+- Fadiga extrema;
+- Ineficiência do uso de oxigênio;
+- Falta de ar;
+            `;
               break;
             case '3': 
             e.innerHTML = 'Moderadamente ativo';
             e.style.background = '#f9e66d';
+            text.innerHTML = `Já pode se sentir os beneficios de uma vida saudável:
+            
+- Disposição;
+- Menos dores musculares;
+- Bem estar;
+- Realiza mais facilmente exercícios aeróbicos;
+- Maior capacidade respiratória;
+            `;
               break;
             case '4': 
             e.innerHTML = 'Altamente ativo';
             e.style.background = '#d1f96d';
+            text.innerHTML = `Uma vida bastante saudável:
+            
+- Pode realizar exercícios com maior facilidade;
+- Crescimento e desenvolvimento muscular;
+- Maior eficiência muscular;
+- Força, agilidade e velocidade;
+- Realiza mais facilmente exercícios pesados;
+- Maior eficiência cardíaca;
+            `;
               break;
             case '5': 
             e.innerHTML = 'Extremamente ativo';
             e.style.background = '#6df973';  
+            text.innerHTML = `O ápice da saúde humana:
+            
+- Pode realizar exercícios com muita facilidade;
+- Crescimento e desenvolvimento muscular monstruoso;
+- Muita Força, muita agilidade e muita velocidade;
+- Realiza com grande facilidade exercícios pesados;
+            `;
               break; 
             default:
               break;          
         }   
+    }
+
+    function calc()
+    {
+
     }
 
     </script>    
@@ -85,6 +134,8 @@
     <!-- Saída de informação. 
     informa ao usuario, com base em sua Taxa de atividade informada, em qual grupo ele se enquadra-->
     <output id="output">Taxa de Atividade</output>
+    <textarea id="outputInfo"readonly="true"></textarea>
+    <input type="button" id="btnCalc" onclick="calc()" value="Calcular">
   </div>
 </body>
 </html>

@@ -88,3 +88,33 @@ output
   font-size: 130%;
   transition: 1s 0s ease;
 }
+#btnCalc
+{
+  position: relative;
+  height: 40px;
+  width: 90%;
+  left: 5%;
+  margin-top: 2.5%;
+  font-size: 130%;
+  border: 1px black solid;
+  background: rgb(91, 253, 172);
+}
+#outputInfo
+{
+  transition: 1s 0s ease;
+  display: none;
+  resize: none;
+  overflow: hidden;
+  position: relative;
+  height: 0px;
+  width: 86%;
+  left: 6%;
+}
+#outputInfo.show
+{
+  display: block;
+}
+#outputInfo.grow
+{
+  height: 160px;
+}
