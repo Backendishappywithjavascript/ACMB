@@ -54,7 +54,7 @@ ESTILIZAÇÃO DO BODY
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 200%;
+  font-size: 150%;
 }
 /* Estilização do select*/
 #selectAtivityRate
@@ -102,7 +102,7 @@ output
   left: 6%;
   margin-top: -2%;
 }
-input[type='text']
+input[type='number']
 {
   position: relative;
   height: 30px;
