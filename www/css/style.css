@@ -4,11 +4,17 @@
   margin: 0;
   paring: 0;
 }
+/*=============================
+ESTILIZAÇÃO DO BODY
+=============================*/
 body
 {
   height: 100%;
   width: 100%;
 }
+/*=============================
+ESTILIZAÇÃO DO HEADER
+=============================*/
 #header
 {
   width: 100%;
@@ -21,6 +27,7 @@ body
   font-size: 10vw;
   transition: 1s 0s ease;
 }
+/* Estilização do header com as classes que são definidas pelo sexo selecionado */
 #header.m
 {
   background: rgb(142, 150, 255);
@@ -29,11 +36,15 @@ body
 {
   background: rgb(255, 140, 218);
 }
-#corpo
+/*=============================
+ESTILIZAÇÃO DO BODY
+=============================*/
+#body
 {
 
 }
-#radio-container
+/* Estilização do container dos radios */
+#radioContainer
 {
   position: relative;
   height: 40px;
@@ -45,7 +56,8 @@ body
   align-items: center;
   font-size: 200%;
 }
-#selecionar
+/* Estilização do select*/
+#selectAtivityRate
 {
   position: relative;
   height: 40px;
@@ -55,15 +67,13 @@ body
   text-align: center;
   font-size: 102.5%;
 }
-.options
-{  
-  text-align: center;
-}
+/* Estilização dos Radios */
 .radio
 {
   width: 25px;
   height: 20px;
 }
+/* Estilização do elemento de saída de informação, sua background-color é alterada diretamente pela função do Java Script*/
 output
 {
   position: relative;
