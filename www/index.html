@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="css/style.css" />
 
     <script type="text/javascript">
+    function adjust(txtText)
+    {
+      var text = document.getElementById('outputInfo');
+      if(text.style.height == '160px')
+      {
+        text.style.height = '0px';
+        text.style.marginTop = '-2%';
+        setTimeout(() => {var text = document.getElementById('outputInfo');text.style.height = '160px';text.style.marginTop = '0px';text.innerHTML = txtText;},1000);
+      }
+      else
+      {
+        text.style.height = '160px';
+        text.style.marginTop = '0px';
+        text.innerHTML = txtText;
+      }
+    }
     function changeColor(x)
     {
       if(x == 'm')
@@ -32,21 +48,18 @@
             case '1': 
             e.innerHTML = 'Sedentários';
             e.style.background = '#f96d6d';
-
-            text.innerHTML = `o Sedentarismo pode acarretar em consequencias graves, tais como:
+            adjust(`o Sedentarismo pode acarretar em consequencias graves, tais como:
              
 - Acúmulo de gordura e entopimento de artérias;
 - Excesso de peso, ocasionando a obesidade;
 - Doenças cardiovasculares, até mesmo infartos;
 - Risco de Diabetes do tipo II;
-            `;
-            text.classList.toggle('show');
-            text.classList.toggle('grow');
+            `);
               break;
             case '2': 
             e.innerHTML = 'Levemente ativo';
             e.style.background = '#f99e6d';
-            text.innerHTML = `é um começo, mas a falta de uma taxa mais elevada de atividade pode gerar:
+            adjust(`é um começo, mas a falta de uma taxa mais elevada de atividade pode gerar:
             
 - Falta de força muscular e dores musculares;
 - Cansaço em excesso com pouco esforço;
@@ -54,24 +67,24 @@
 - Fadiga extrema;
 - Ineficiência do uso de oxigênio;
 - Falta de ar;
-            `;
+            `);
               break;
             case '3': 
             e.innerHTML = 'Moderadamente ativo';
             e.style.background = '#f9e66d';
-            text.innerHTML = `Já pode se sentir os beneficios de uma vida saudável:
+            adjust(`Já pode se sentir os beneficios de uma vida saudável:
             
 - Disposição;
 - Menos dores musculares;
 - Bem estar;
 - Realiza mais facilmente exercícios aeróbicos;
 - Maior capacidade respiratória;
-            `;
+            `);
               break;
             case '4': 
             e.innerHTML = 'Altamente ativo';
             e.style.background = '#d1f96d';
-            text.innerHTML = `Uma vida bastante saudável:
+            adjust(`Uma vida bastante saudável:
             
 - Pode realizar exercícios com maior facilidade;
 - Crescimento e desenvolvimento muscular;
@@ -79,20 +92,26 @@
 - Força, agilidade e velocidade;
 - Realiza mais facilmente exercícios pesados;
 - Maior eficiência cardíaca;
-            `;
+            `);
               break;
             case '5': 
             e.innerHTML = 'Extremamente ativo';
             e.style.background = '#6df973';  
-            text.innerHTML = `O ápice da saúde humana:
+            adjust(`O ápice da saúde humana:
             
 - Pode realizar exercícios com muita facilidade;
 - Crescimento e desenvolvimento muscular monstruoso;
 - Muita Força, muita agilidade e muita velocidade;
 - Realiza com grande facilidade exercícios pesados;
-            `;
+            `);
               break; 
             default:
+            e.innerHTML = 'Taxa de Atividade';
+            e.style.background = '#ffffff';
+
+            text.innerHTML = ``;
+            text.style.height = '0px';
+            text.style.marginTop = '-2%';
               break;          
         }   
     }

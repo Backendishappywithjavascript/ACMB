@@ -83,10 +83,12 @@ output
   margin-top: 2.5%;
   border: 1px black solid;
   display: flex;
+  background: white;
   justify-content: center;
   align-items: center;
   font-size: 130%;
   transition: 1s 0s ease;
+  z-index: 5;
 }
 #btnCalc
 {
@@ -102,19 +104,12 @@ output
 #outputInfo
 {
   transition: 1s 0s ease;
-  display: none;
+  display: block;
   resize: none;
   overflow: hidden;
   position: relative;
   height: 0px;
   width: 86%;
   left: 6%;
-}
-#outputInfo.show
-{
-  display: block;
-}
-#outputInfo.grow
-{
-  height: 160px;
+  margin-top: -2%;
 }
