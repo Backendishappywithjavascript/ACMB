@@ -78,7 +78,7 @@ output
 {
   position: relative;
   height: 40px;
-  width: 90%;
+  width: calc(90% - 2px);
   left: 5%;
   margin-top: 2.5%;
   border: 1px black solid;
@@ -89,17 +89,6 @@ output
   font-size: 130%;
   transition: 1s 0s ease;
   z-index: 5;
-}
-#btnCalc
-{
-  position: relative;
-  height: 40px;
-  width: 90%;
-  left: 5%;
-  margin-top: 2.5%;
-  font-size: 130%;
-  border: 1px black solid;
-  background: rgb(91, 253, 172);
 }
 #outputInfo
 {
@@ -112,4 +101,25 @@ output
   width: 86%;
   left: 6%;
   margin-top: -2%;
+}
+input[type='text']
+{
+  position: relative;
+  height: 30px;
+  width: 28%;
+  margin-top: 2.5%;
+  left: 5.25%;
+  text-align: center;
+}
+#btnCalc
+{
+  position: relative;
+  height: 40px;
+  width: 90%;
+  left: 5%;
+  margin-top: 2.5%;
+  font-size: 130%;
+  border: 1px black solid;
+  background: rgb(91, 253, 172);
+  cursor: pointer;
 }

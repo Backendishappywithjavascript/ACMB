@@ -8,13 +8,24 @@
 
     <script type="text/javascript">
     var sexo;
-    function calc()
+    function calculate()
     {
-      var taxaAtividade;
-      var mB;
+      var taxaAtividade = 0;
+      var mB;      
+      var result = document.getElementById('result');
+      if(document.getElementById('peso').value == "" ||
+         document.getElementById('altura').value == "" ||
+         document.getElementById('idade').value == "")
+      {
+        result.innerHTML = "ERRO! VERIFIQUE OS CAMPOS!";
+        return;
+      }
       var peso = parseFloat(document.getElementById('peso').value);
       var altura = parseFloat(document.getElementById('altura').value);
       var idade = parseFloat(document.getElementById('idade').value);
+
+      
+
 
       switch(document.getElementById('selectAtivityRate').value)
       {
@@ -34,21 +45,25 @@
             taxaAtividade = 1.9;
             break; 
           default:
+             mB = 'ERRO! VERIFIQUE OS CAMPOS!';
             break;    
       }
-      if(sexo == 'm')
+      if(taxaAtividade != 0)
       {
-        mB = taxaAtividade * (66 + ( (13.7 * peso) + (5 * altura) - (6.8 * idade) ) );
+        if(sexo == 'm')
+        {
+          mB = Math.round(taxaAtividade * (66 + ( (13.7 * peso) + (5 * altura) - (6.8 * idade) ) ));
+        }
+        else if(sexo == 'f')
+        {
+          mB = Math.round(taxaAtividade * (665 + ( (9.6 * peso) + (1.8 * altura)  - (4.7 * idade) ) ));
+        }
+        else
+        {
+          mB = 'ERRO! VERIFIQUE OS CAMPOS!';
+        }
       }
-      else if(sexo == 'f')
-      {
-        mB = taxaAtividade * (665 + ( (9.6 * peso) + (1.8 * altura) - (4.7 * idade) ) );
-      }
-      else
-      {
-        mB = 'OOOOPSSS';
-      }
-      alert(mB);
+      result.innerHTML = mB;
     }
     function adjust(txtText)
     {
@@ -71,12 +86,12 @@
       if(x == 'm')
       {
         document.getElementById('header').classList.remove('f');
-        sexo = 'f';
+        sexo = 'm';
       }
       else if(x == 'f')
       {
         document.getElementById('header').classList.remove('m');
-        sexo = 'm';
+        sexo = 'f';
       }
       document.getElementById('header').classList.add(x);
     }
@@ -199,11 +214,11 @@
     informa ao usuario, com base em sua Taxa de atividade informada, em qual grupo ele se enquadra-->
     <output id="output">Taxa de Atividade</output>
     <textarea id="outputInfo"readonly="true"></textarea>
-    <input type="text" id="peso" placeholder="Peso(kg)">
-    <input type="text" id="altura" placeholder="Altura(cm)">
-    <input type="text" id="idade" placeholder="Idade(anos)">
+    <input type="text" id="peso" placeholder="Peso(kg)"  value="">
+    <input type="text" id="altura" placeholder="Altura(cm)"  value="">
+    <input type="text" id="idade" placeholder="Idade(anos)" value="">
 
-    <input type="button" id="btnCalc" onclick="calc()" value="Calcular">
+    <input type="button" id="btnCalc" onclick="calculate()" value="Calcular">
     <output id="result"></output>
   </div>
 </body>
