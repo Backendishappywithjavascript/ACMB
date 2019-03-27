@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript">
+    function changeColor(x)
+    {
+      if(x == 'm')
+      {
+        document.getElementById('header').classList.remove('f');
+      }
+      else if(x == 'f')
+      {
+        document.getElementById('header').classList.remove('m');
+      }
+      document.getElementById('header').classList.add(x);
+    }
+    function selectAtt(x)
+    {
+      var e = document.getElementById('output');
+        switch(x.value)
+        {
+            case '1': 
+            e.innerHTML = 'Sedentários';
+            e.style.background = '#f96d6d';
+              break;
+            case '2': 
+            e.innerHTML = 'Levemente ativo';
+            e.style.background = '#f99e6d';
+              break;
+            case '3': 
+            e.innerHTML = 'Moderadamente ativo';
+            e.style.background = '#f9e66d';
+              break;
+            case '4': 
+            e.innerHTML = 'Altamente ativo';
+            e.style.background = '#d1f96d';
+              break;
+            case '5': 
+            e.innerHTML = 'Extremamente ativo';
+            e.style.background = '#6df973';  
+              break; 
+            default:
+              break;          
+        }   
+    }
+
+    </script>    
+</head>
+<body>
+	<div id='header'>
+	    Metabolismo Basal
+  </div>
+  <div id='corpo'>
+    <div id='radio-container'>
+      <div id='radio-first'><input type='radio' class="radio" name='sexo' value='f' onclick="changeColor(this.value)"/>Feminino</div>
+      <div id='radio-second'><input type='radio' class="radio" name='sexo' value='m' onclick="changeColor(this.value)"/>Masculino</div>
+    </div>
+    <select id='selecionar' onchange="selectAtt(this)">
+      <option class="options" value="">Selecione</option>
+      <option class="options" value="1">Pouco ou nenhum exercício</option>
+      <option class="options" value="2">Exercício leve 1 a 3 dias por semana</option>
+      <option class="options" value="3">Faz esportes 3 a 5 dias por semana</option>
+      <option class="options" value="4">Exercício pesado de 5 a 6 dias por semana</option>
+      <option class="options" value="5">Exercício pesado até 2 vezes por dia</option>
+    </select>    
+    <output id="output">Taxa de Atividade</output>
+  </div>
+</body>
+</html>
